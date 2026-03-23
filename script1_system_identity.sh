@@ -3,8 +3,8 @@
 # Author: Tanishq Shrivastava | Reg No: 24BCY10162
 # Course: Open Source Software | Chosen Software: Git
 
-STUDENT_NAME="Tanishq Shrivastava"
-REG_NO="24BCY10162"
+STUDENT_NAME="Tanishq Mishra"
+REG_NO="24BAI10886"
 SOFTWARE="Git"
 LICENSE="GPL v2"
 
