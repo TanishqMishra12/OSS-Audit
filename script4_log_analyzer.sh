@@ -1,7 +1,7 @@
 #!/bin/bash
 # Script 4: Log File Analyzer
 
-# Author: Tanishq Shrivastava | Reg No: 24BCY10162
+# Author: Tanishq Mishra | Reg No: 24BAI10886
 # Usage: ./script4_log_analyzer.sh <logfile> [keyword]
 # Example: ./script4_log_analyzer.sh /var/log/syslog error
 
