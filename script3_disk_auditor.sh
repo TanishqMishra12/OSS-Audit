@@ -3,6 +3,7 @@
 # Author: Tanishq Mishra | Reg No: 24BAI10886
 # Loops through key system directories, reports permissions and size
 
+# Key directories to audit — last entry is git's doc directory
 DIRS=("/etc" "/var/log" "/home" "/usr/bin" "/tmp" "/usr/share/doc/git")
 
 echo "Directory Audit Report"
@@ -12,8 +13,8 @@ echo "------------------------------------------------------------------"
 
 for DIR in "${DIRS[@]}"; do
     if [ -d "$DIR" ]; then
-        PERMS=$(ls -ld "$DIR" | awk '{print $1, $3, $4}')
-        SIZE=$(du -sh "$DIR" 2>/dev/null | cut -f1)
+        PERMS=$(ls -ld "$DIR" | awk '{print $1, $3, $4}') # Extracts permission string, owner, and group
+        SIZE=$(du -sh "$DIR" 2>/dev/null | cut -f1)        # Human-readable size; errors suppressed for restricted dirs
         printf "%-30s %-20s %-10s\n" "$DIR" "$PERMS" "$SIZE"
     else
         printf "%-30s %s\n" "$DIR" "[does not exist on this system]"
@@ -24,6 +25,7 @@ echo ""
 echo "Git config directory check:"
 echo "----------------------------------"
 
+# Check all three git config scopes: system, global (user), and local repo
 GIT_CONFIG_DIRS=("/etc/gitconfig" "$HOME/.gitconfig" "$HOME/.git")
 
 for GPATH in "${GIT_CONFIG_DIRS[@]}"; do
