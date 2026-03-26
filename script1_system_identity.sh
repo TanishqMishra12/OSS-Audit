@@ -3,18 +3,21 @@
 # Author: Tanishq Mishra | Reg No: 24BAI10886
 # Course: Open Source Software | Chosen Software: Git
 
+# Static assignment of student and software details
 STUDENT_NAME="Tanishq Mishra"
 REG_NO="24BAI10886"
 SOFTWARE="Git"
 LICENSE="GPL v2"
 
+# Fetch live system details at runtime
 KERNEL=$(uname -r)
-DISTRO=$(cat /etc/os-release | grep PRETTY_NAME | cut -d= -f2 | tr -d '"')
+DISTRO=$(cat /etc/os-release | grep PRETTY_NAME | cut -d= -f2 | tr -d '"') # Extracts clean distro name from OS release file
 LOGGED_USER=$(whoami)
 HOME_DIR=$HOME
 UPTIME=$(uptime -p)
-CURR_DATE=$(date '+%d %B %Y, %I:%M %p')
+CURR_DATE=$(date '+%d %B %Y, %I:%M %p') # Format: day Month Year, 12-hr time
 
+# Print formatted audit report to stdout
 echo "=================================================="
 echo "        Open Source Audit — $STUDENT_NAME"
 echo "        Reg: $REG_NO"
@@ -29,7 +32,7 @@ echo "  Home Dir     : $HOME_DIR"
 echo "  Uptime       : $UPTIME"
 echo "  Date/Time    : $CURR_DATE"
 echo ""
-echo "  Audit Target"
+echo "  Audit Target"        # Software being audited for the assignment
 echo "  ------------"
 echo "  Software     : $SOFTWARE"
 echo "  OS License   : $LICENSE"
